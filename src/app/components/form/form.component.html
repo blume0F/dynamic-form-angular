@@ -1,0 +1,26 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1 pl-5">Angular Dynamic Forms</span>
+  </nav>
+
+  <div class="mt-5">
+    <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+      <div *ngFor="let control of formStructure">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">{{control.form_label}}</span>
+          <input [type]="control.field_type" [formControlName]="control.form_name" [placeholder]="control.placeholder"
+            class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+      </div>
+      <button class="btn btn-primary mt-5" type="submit">Submit</button>
+    </form>
+  </div>
+  <div *ngIf="submittedValues">
+    <div *ngFor="let data of submittedValues | keyvalue">
+      <div class="item" style="display: inline;">
+        <b>{{data.key}}</b>
+        <p>{{data.value}}</p>
+      </div>
+    </div>
+  </div>
+</div>

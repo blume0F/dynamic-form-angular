@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormComponent } from './components/form/form.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: FormComponent },
+  { path: 'form', component: FormComponent }, // Home page route
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
